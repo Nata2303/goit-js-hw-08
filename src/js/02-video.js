@@ -16,10 +16,10 @@ player.getVideoTitle().then((title) => {
   console.log("title:", title);
 });
 
-const currentTime = JSON.parse(
-  localStorage.getItem("videoplayer-current-time")
-);
-player.setCurrentTime(currentTime);
+const currentTime = localStorage.getItem("videoplayer-current-time");
+if (currentTime) {
+  player.setCurrentTime(JSON.parse(currentTime));
+}
 
 player.on(
   "timeupdate",
